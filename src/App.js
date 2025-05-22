@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavigationTabs from './components/NavigationTabs';
+import PreMatch from './pages/PreMatch';
+import MatchTime from './pages/MatchTime';
+import PostMatch from './pages/PostMatch';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavigationTabs />
+      <Routes>
+        <Route path="/" element={<PreMatch />} />
+        <Route path="/match" element={<MatchTime />} />
+        <Route path="/post" element={<PostMatch />} />
+      </Routes>
+    </Router>
   );
 }
 
